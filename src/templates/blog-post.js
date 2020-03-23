@@ -24,7 +24,7 @@ class BlogPostTemplate extends React.Component {
           style={{
             ...scale(-1 / 5),
             display: `block`,
-            marginBottom: rhythm(1),
+            marginBottom: "75px",
             marginTop: rhythm(-1),
           }}
         >
@@ -33,6 +33,7 @@ class BlogPostTemplate extends React.Component {
         <MDXRenderer>{post.body}</MDXRenderer>
         <hr
           style={{
+            width: "100%",
             marginBottom: rhythm(1),
           }}
         />
