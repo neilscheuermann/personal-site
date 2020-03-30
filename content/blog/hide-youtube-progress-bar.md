@@ -8,4 +8,6 @@ description: >-
 ---
 `document.querySelector('.ytp-progress-bar-container').setAttribute('hidden', true)`
 
+`document.querySelector('.ytp-time-display').setAttribute('hidden', true)`
+
 Paste this in console to hide the YouTube progress bar. (Will write about the step later)
