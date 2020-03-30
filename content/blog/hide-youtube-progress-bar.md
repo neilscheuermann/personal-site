@@ -2,7 +2,7 @@
 path: youtube_progress_bar
 date: 2020-03-30T18:20:31.657Z
 title: Hide YouTube progress bar
-description: \/
+description: A little useful fun with JavaScript
 ---
 ## Make re-watching past sporting events more exciting, without the progress bar giving away the possibility of overtime. Do it using some basic javascript!
 
