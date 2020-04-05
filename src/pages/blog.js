@@ -21,8 +21,7 @@ class Blog extends React.Component {
         <div style={{ margin: "20px 0 40px" }}>
           {posts.map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug
-            const { tags: tagsString } = node.frontmatter
-            const tags = tagsString ? tagsString.split(",") : []
+            const tags = node.frontmatter.tags || []
 
             return (
               <div key={node.fields.slug}>

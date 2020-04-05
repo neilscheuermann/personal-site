@@ -3,7 +3,7 @@ path: youtube_progress_bar
 date: 2020-04-05T18:20:31.657Z
 title: Hide YouTube progress bar using JavaScript
 description: Use a couple basic JavaScript tools like querySelector() and setAttribute() to access and change data on a webpage
-tags: JavaScript
+tags: ["JavaScript"]
 ---
 
 Make re-watching past sporting events more exciting, without the progress bar giving 
