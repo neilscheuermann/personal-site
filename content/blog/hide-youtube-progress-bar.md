@@ -11,8 +11,8 @@ away the possibility of overtime. And have fun using JavaScript to solve a
 real-world (...all-though really small) problem.
 
 ### TL;DR: 
-- Use JavaScript to find the progress bar and time status displays. Paste in
-  console and they will be hidden.
+- Use JavaScript to find the progress bar and time status display elements and
+  set their **hidden** status true. Paste this in console and they will be hidden.
 ```js
 document.querySelector('.ytp-progress-bar-container').setAttribute('hidden', true)
 document.querySelector('.ytp-time-display').setAttribute('hidden', true)
