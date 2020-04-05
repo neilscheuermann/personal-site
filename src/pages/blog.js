@@ -1,5 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import styled from "styled-components"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -20,6 +21,9 @@ class Blog extends React.Component {
         <div style={{ margin: "20px 0 40px" }}>
           {posts.map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug
+            const { tags: tagsString } = node.frontmatter
+            const tags = tagsString ? tagsString.split(",") : []
+
             return (
               <div key={node.fields.slug}>
                 <h3
@@ -35,6 +39,9 @@ class Blog extends React.Component {
                   </Link>
                 </h3>
                 <small>{node.frontmatter.date}</small>
+                {tags.map(tag => {
+                  return <Tag>{node.frontmatter.tags}</Tag>
+                })}
                 <p
                   dangerouslySetInnerHTML={{
                     __html: node.frontmatter.description || node.excerpt,
@@ -72,9 +79,25 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            tags
           }
         }
       }
     }
   }
+`
+
+const Tag = styled.div`
+  display: inline-block;
+  height: 32px;
+  font-size: 12px;
+  font-weight: 800;
+  color: rgba(0, 0, 0, 0.6);
+  line-height: 32px;
+  padding: 0 12px;
+  border-radius: 16px;
+  border: solid gray 1px;
+  background-color: #e4e4e4;
+  margin-bottom: 5px;
+  margin-right: 5px;
 `
