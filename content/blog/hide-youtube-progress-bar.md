@@ -26,14 +26,18 @@ document.querySelectorAll('.ytd-thumbnail-overlay-time-status-renderer').forEach
 ### 1. Find the element on the page
 
 You can right-click on the element on the page and find the progress bar
-(***Shortcut***: `command + shift + c` to enter inspect mode).
+(***Shortcut***: `command + shift + c` to enter inspect mode). All the
+JavaScript is written in the cosole (***Shortcut***: `command + option + j` to
+open the console).
 
-I found that the class name for the video progress bar was `ytp-progress-bar-container`
-so I accessed the html element by typing `document.querySelector()` into the
-browser console.
+I found the class name for the video progress bar was `ytp-progress-bar-container` 
+and the time display in full screen was `ytp-time-display`.
+I accessed the html elements by using `document.querySelector()`, remembering to 
+prefix the string with a period, since it's a class.
 
 ```js
 const progressBar = document.querySelector('.ytp-progress-bar-container')
+const timeDisplay = document.querySelector('.ytp-time-display')
 ```
 
 If I need to access a list of elements, like the time display on each video
@@ -41,7 +45,7 @@ thumbnail in the video, then I need to use `document.querySelectorAll()` to get
 an array-like structure of elements.
 
 ```js
-const timeDisplayArr = document.querySelector('.ytp-time-display').setAttribute('hidden', true)
+const thumbnailTimeDisplays = document.querySelector('.ytd-thumbnail-overlay-time-status-renderer')
 ```
 
 ### 2. Set the css attribut **hidden** to true
@@ -54,10 +58,12 @@ If you have a list of elements, you can set each element's attribut using a
 
 ```js
 const progressBar = document.querySelector('.ytp-progress-bar-container')
-const timeDisplayArr = document.querySelector('.ytp-time-display').setAttribute('hidden', true)
+const timeDisplay = document.querySelector('.ytp-time-display')
+const thumbnailTimeDisplays = document.querySelector('.ytd-thumbnail-overlay-time-status-renderer')
 
 progressBar.setAttribute('hidden', true)
-timeDisplayArr.forEach(elem => elem.setAttribute('hidden', true))
+timeDisplay.setAttribute('hidden', true)
+thumbnailTimeDisplays.forEach(elem => elem.setAttribute('hidden', true))
 ```
 
 Bam!! Now you don't have to worry about having the end of a backetball game
