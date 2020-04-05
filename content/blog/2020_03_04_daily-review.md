@@ -36,3 +36,8 @@ For this to work I had to remove the following line.
 
 I learned that running `docker stats` in **Platform** will show what container is using most
 of the **CPU** and **memory**
+
+## 04/05/20
+
+I downloaded the [Dark Reader](https://chrome.google.com/webstore/detail/dark-reader/eimadpbcbfnmbkopoojfekhnkhdbieeh?hl=en-US) 
+app from Chrome and it is sweet!
