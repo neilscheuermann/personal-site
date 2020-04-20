@@ -13,3 +13,6 @@ description: Different ways I've optimized my workflow
 - **C**: Corne keyboard layout file
 - **N**: `work-notes.md`
 - **M**: Daily review file
+
+### Shortcuts
+**F6**: Toggle markdown preview in browser
