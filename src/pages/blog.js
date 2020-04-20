@@ -88,15 +88,12 @@ export const pageQuery = graphql`
 
 const Tag = styled.div`
   display: inline-block;
-  height: 32px;
   font-size: 12px;
   font-weight: 800;
-  color: rgba(0, 0, 0, 0.6);
-  line-height: 32px;
-  padding: 0 12px;
+  color: rgba(0, 0, 0, 0.7);
+  padding: 0 8px;
   border-radius: 16px;
   border: solid gray 1px;
   background-color: #e4e4e4;
-  margin-bottom: 5px;
-  margin-right: 5px;
+  margin: 0 4px;
 `

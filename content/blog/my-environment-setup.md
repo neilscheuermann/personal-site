@@ -4,6 +4,7 @@ date: 2020-04-13T16:39:15.971Z
 title: My Environment Setup
 description: Different ways I've optimized my workflow
 ---
+
 ## Vim
 
 ### Marks
