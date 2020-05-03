@@ -1,4 +1,5 @@
 import React from "react"
+import { FaHome as HomeIcon } from "react-icons/fa"
 import { Link } from "gatsby"
 import styled from "styled-components"
 import { navLinks, MOBILE_WIDTH } from "../utils/constants"
@@ -11,17 +12,14 @@ function NavBar() {
     }
 
     return (
-      <NavLink key={name} active={isCurrentPage()}>
-        <Link
-          style={{
-            boxShadow: `none`,
-            textDecoration: `none`,
-            color: `inherit`,
-          }}
-          to={linkTo}
-        >
-          {name.toUpperCase()}
-        </Link>
+      <NavLink
+        key={name}
+        active={isCurrentPage()}
+        to={linkTo}
+        style={{ boxShadow: `none`, textDecoration: `none`, color: `inherit` }}
+      >
+        <HomeIcon />
+        {name.toUpperCase()}
       </NavLink>
     )
   })
@@ -33,6 +31,7 @@ const LinksListWrapper = styled.nav`
   position: fixed;
   width: 100vw;
   z-index: 1;
+  background-color: white;
 
   display: flex;
 
@@ -47,11 +46,10 @@ const LinksListWrapper = styled.nav`
   }
 `
 
-const NavLink = styled.nav`
-  align-items: center;
+const NavLink = styled(Link)`
   display: flex;
-  height: 100%;
-  border: solid red 1px;
+  flex-direction: column;
+  align-items: center;
   padding: 0 20px;
 
   ${({ active }) =>
@@ -59,6 +57,12 @@ const NavLink = styled.nav`
     `
       border-top: 4px solid black;
     `}
+
+  @media only screen and (min-width: ${MOBILE_WIDTH}) {
+    > svg {
+      display: none;
+    }
+  }
 `
 
 export default NavBar
