@@ -15,4 +15,18 @@ description: Different ways I've optimized my workflow
 - **M**: Daily review file
 
 ### Shortcuts
+**F5**: Open html file in the browser
+
 **F6**: Toggle markdown preview in browser
+
+## iTerm
+
+### Shortcuts - window arrangements
+
+`command + option + control` + the following key 
+- `p`: Platform
+- `o`: Platform - refresh
+- `l`: Web 
+- `k`: Web - refresh
+- `m`: Mobile 
+- `n`: Mobile - refresh
