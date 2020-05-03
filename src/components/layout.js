@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 
+import NavBar from "./nav-bar"
 import { rhythm, scale } from "../utils/typography"
 
 class Layout extends React.Component {
@@ -55,6 +56,7 @@ class Layout extends React.Component {
     }
     return (
       <Wrapper>
+        <NavBar />
         <div
           style={{
             marginLeft: `auto`,
