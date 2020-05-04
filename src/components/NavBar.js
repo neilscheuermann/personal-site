@@ -1,5 +1,10 @@
 import React from "react"
-import { FaHome as HomeIcon } from "react-icons/fa"
+import {
+  FaRegNewspaper as BlogIcon,
+  FaHome as HomeIcon,
+  FaInfoCircle as InfoIcon,
+  FaLaptopCode as PortfolioIcon,
+} from "react-icons/fa"
 import { Link } from "gatsby"
 import styled from "styled-components"
 import {
@@ -7,8 +12,29 @@ import {
   navLinks,
   removeDefaultLinkFormatting,
 } from "../utils/constants"
+import { IconContext } from "react-icons"
+
+function StyledIconWrapper({ children }) {
+  return (
+    <IconContext.Provider value={{ color: "black", size: "40px" }}>
+      {children}
+    </IconContext.Provider>
+  )
+}
 
 function NavBar() {
+  const renderIcon = name => {
+    if (name === "home") {
+      return <HomeIcon />
+    } else if (name === "portfolio") {
+      return <PortfolioIcon />
+    } else if (name === "blog") {
+      return <BlogIcon />
+    } else if (name === "about") {
+      return <InfoIcon />
+    }
+  }
+
   const renderNavLinks = navLinks.map(navLink => {
     const { name, linkTo } = navLink
     const isCurrentPage = () => {
@@ -22,7 +48,7 @@ function NavBar() {
         to={linkTo}
         style={removeDefaultLinkFormatting}
       >
-        <HomeIcon />
+        <StyledIconWrapper>{renderIcon(name)}</StyledIconWrapper>
         {name.toUpperCase()}
       </NavLink>
     )
