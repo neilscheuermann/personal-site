@@ -1,7 +1,7 @@
 export const navLinks = [
   { name: "home", linkTo: "/" },
   { name: "blog", linkTo: "/blog" },
-  { name: "portfolio", linkTo: "/portfolio" },
+  { name: "work", linkTo: "/work" },
   { name: "about", linkTo: "/about" },
 ]
 

@@ -1,12 +1,12 @@
 import React from "react"
+import { Link } from "gatsby"
+import styled from "styled-components"
 import {
   FaRegNewspaper as BlogIcon,
   FaHome as HomeIcon,
   FaInfoCircle as InfoIcon,
   FaLaptopCode as PortfolioIcon,
 } from "react-icons/fa"
-import { Link } from "gatsby"
-import styled from "styled-components"
 import {
   MOBILE_WIDTH,
   navLinks,
@@ -26,7 +26,7 @@ function NavBar() {
   const renderIcon = name => {
     if (name === "home") {
       return <HomeIcon />
-    } else if (name === "portfolio") {
+    } else if (name === "work") {
       return <PortfolioIcon />
     } else if (name === "blog") {
       return <BlogIcon />
@@ -62,6 +62,7 @@ const LinksListWrapper = styled.nav`
   width: 100vw;
   z-index: 1;
   background-color: white;
+  padding: 10px;
 
   display: flex;
 
