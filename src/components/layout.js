@@ -3,6 +3,8 @@ import { Link } from "gatsby"
 import styled from "styled-components"
 
 import { rhythm, scale } from "../utils/typography"
+import { removeDefaultLinkFormatting } from "../utils/constants"
+import NavBar from "./NavBar"
 
 class Layout extends React.Component {
   render() {
@@ -21,11 +23,7 @@ class Layout extends React.Component {
           }}
         >
           <Link
-            style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
-            }}
+            style={removeDefaultLinkFormatting}
             to={location.pathname === blogPath ? `/blog/` : `/`}
           >
             {title}
@@ -40,14 +38,7 @@ class Layout extends React.Component {
             marginTop: 0,
           }}
         >
-          <Link
-            style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
-            }}
-            to={`/blog/`}
-          >
+          <Link style={removeDefaultLinkFormatting} to={`/blog/`}>
             {title}
           </Link>
         </h3>
@@ -55,6 +46,9 @@ class Layout extends React.Component {
     }
     return (
       <Wrapper>
+        <header>
+          <NavBar />
+        </header>
         <div
           style={{
             marginLeft: `auto`,
@@ -63,7 +57,6 @@ class Layout extends React.Component {
             padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
           }}
         >
-          <header>{header}</header>
           <main>{children}</main>
         </div>
         <Footer>
