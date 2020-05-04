@@ -5,3 +5,9 @@ export const navLinks = [
 ]
 
 export const MOBILE_WIDTH = "576px"
+
+export const removeDefaultLinkFormatting = {
+  boxShadow: `none`,
+  textDecoration: `none`,
+  color: `inherit`,
+}

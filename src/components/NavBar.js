@@ -2,7 +2,11 @@ import React from "react"
 import { FaHome as HomeIcon } from "react-icons/fa"
 import { Link } from "gatsby"
 import styled from "styled-components"
-import { navLinks, MOBILE_WIDTH } from "../utils/constants"
+import {
+  MOBILE_WIDTH,
+  navLinks,
+  removeDefaultLinkFormatting,
+} from "../utils/constants"
 
 function NavBar() {
   const renderNavLinks = navLinks.map(navLink => {
@@ -16,7 +20,7 @@ function NavBar() {
         key={name}
         active={isCurrentPage()}
         to={linkTo}
-        style={{ boxShadow: `none`, textDecoration: `none`, color: `inherit` }}
+        style={removeDefaultLinkFormatting}
       >
         <HomeIcon />
         {name.toUpperCase()}
