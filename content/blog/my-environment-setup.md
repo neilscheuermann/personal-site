@@ -12,7 +12,7 @@ description: Different ways I've optimized my workflow
 - **V**: `.vimrc`
 - **C**: Corne keyboard layout file
 - **N**: `work-notes.md`
-- **M**: Daily review file
+- **M**: `my-environment-setup.md`
 
 ### Shortcuts
 **F5**: Open html file in the browser
