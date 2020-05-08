@@ -1,18 +1,20 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "gatsby"
+import useMediaQuery from "react-hook-media-query"
 import styled from "styled-components"
+import { IconContext } from "react-icons"
 import {
   FaRegNewspaper as BlogIcon,
   FaHome as HomeIcon,
   FaInfoCircle as InfoIcon,
   FaLaptopCode as PortfolioIcon,
+  FaBars as SideNavIcon,
 } from "react-icons/fa"
 import {
   MOBILE_WIDTH,
   navLinks,
   removeDefaultLinkFormatting,
 } from "../utils/constants"
-import { IconContext } from "react-icons"
 
 function StyledIconWrapper({ children }) {
   return (
@@ -23,6 +25,9 @@ function StyledIconWrapper({ children }) {
 }
 
 function NavBar() {
+  const [hideSideNav, setHideSideNav] = useState(true)
+  const isMobile = useMediaQuery(`(max-width: ${MOBILE_WIDTH})`)
+
   const renderIcon = name => {
     if (name === "home") {
       return <HomeIcon />
@@ -54,34 +59,72 @@ function NavBar() {
     )
   })
 
-  return <LinksListWrapper>{renderNavLinks}</LinksListWrapper>
+  return (
+    <div>
+      <SideNavButton onClick={() => setHideSideNav(!hideSideNav)}>
+        <SideNavIcon />
+      </SideNavButton>
+      <LinksListWrapper hide={isMobile && hideSideNav}>
+        {renderNavLinks}
+      </LinksListWrapper>
+    </div>
+  )
 }
+
+const SideNavButton = styled.button`
+  position: absolute;
+  z-index: 2;
+  top: 10px;
+  left: 10px;
+  background: none;
+  border: none;
+
+  ${/* Web */ ""}
+  @media only screen and (min-width: ${MOBILE_WIDTH}) {
+    display: none;
+  }
+  
+`
 
 const LinksListWrapper = styled.nav`
   position: fixed;
+  top: 0;
   width: 100vw;
   z-index: 1;
-  background-color: white;
   padding: 10px;
-
   display: flex;
 
+  ${/* Web */ ""}
   @media only screen and (min-width: ${MOBILE_WIDTH}) {
-    top: 0;
     justify-content: flex-end;
   }
 
+  ${/* Mobile */ ""}
   @media only screen and (max-width: ${MOBILE_WIDTH}) {
-    bottom: 0;
-    justify-content: space-between;
+    flex-direction: column;
+    background-color: #ededed;
+    padding-top: 70px;
+    width: 90%;
+    max-width: 130px;
+    position: absolute;
+    left: 0;
+    height: 100%;
+    transition: transform .3s;
   }
+
+  ${({ hide }) =>
+    hide &&
+    `
+      transform: translateX(-100%);
+  `}
+
 `
 
 const NavLink = styled(Link)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 20px;
+  padding: 12px;
 
   ${({ active }) =>
     active &&
@@ -89,6 +132,7 @@ const NavLink = styled(Link)`
       border-top: 4px solid black;
     `}
 
+  ${/* Web */ ""}
   @media only screen and (min-width: ${MOBILE_WIDTH}) {
     > svg {
       display: none;
