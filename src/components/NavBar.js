@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
+import useMediaQuery from "react-hook-media-query"
 import styled from "styled-components"
 import { IconContext } from "react-icons"
 import {
@@ -25,6 +26,9 @@ function StyledIconWrapper({ children }) {
 
 function NavBar() {
   const [hideSideNav, setHideSideNav] = useState(true)
+
+  const isMobile = useMediaQuery(`(max-width: ${MOBILE_WIDTH})`)
+  console.log("isMobile>>>", isMobile)
 
   const renderIcon = name => {
     if (name === "home") {
@@ -62,7 +66,9 @@ function NavBar() {
       <SideNavButton onClick={() => setHideSideNav(!hideSideNav)}>
         <SideNavIcon />
       </SideNavButton>
-      <LinksListWrapper hide={hideSideNav}>{renderNavLinks}</LinksListWrapper>
+      <LinksListWrapper hide={isMobile && hideSideNav}>
+        {renderNavLinks}
+      </LinksListWrapper>
     </div>
   )
 }

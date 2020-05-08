@@ -12038,6 +12038,11 @@ react-helmet@^5.2.0:
     react-fast-compare "^2.0.2"
     react-side-effect "^1.1.0"
 
+react-hook-media-query@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/react-hook-media-query/-/react-hook-media-query-1.0.3.tgz#55dc221b5449d29bebf461bd659389e4fb38bf80"
+  integrity sha512-6sC1oru7LQCmORwQUrZa7MGBxSufazI7JvYeJVyX6RwPRbDHP/7DVow9KH6Ecrz28h8OIajVNqG1gVulxYzvEg==
+
 react-hot-loader@^4.12.20, react-hot-loader@^4.8.0:
   version "4.12.20"
   resolved "https://registry.yarnpkg.com/react-hot-loader/-/react-hot-loader-4.12.20.tgz#c2c42362a7578e5c30357a5ff7afa680aa0bef8a"
