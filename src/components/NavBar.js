@@ -68,6 +68,13 @@ function NavBar() {
 }
 
 const SideNavButton = styled.button`
+  position: absolute;
+  z-index: 2;
+  top: 10px;
+  left: 10px;
+  background: none;
+  border: none;
+
   ${/* Web */ ""}
   @media only screen and (min-width: ${MOBILE_WIDTH}) {
     display: none;
@@ -81,7 +88,6 @@ const LinksListWrapper = styled.nav`
   width: 100vw;
   z-index: 1;
   padding: 10px;
-
   display: flex;
 
   ${/* Web */ ""}
@@ -92,13 +98,13 @@ const LinksListWrapper = styled.nav`
   ${/* Mobile */ ""}
   @media only screen and (max-width: ${MOBILE_WIDTH}) {
     flex-direction: column;
-    background-color: white;
-    margin-top: 70px;
+    background-color: #ededed;
+    padding-top: 70px;
     width: 90%;
     max-width: 130px;
     position: absolute;
     left: 0;
-    height: calc(100% - 70px);
+    height: 100%;
     transition: transform .3s;
   }
 
