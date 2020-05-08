@@ -26,9 +26,7 @@ function StyledIconWrapper({ children }) {
 
 function NavBar() {
   const [hideSideNav, setHideSideNav] = useState(true)
-
   const isMobile = useMediaQuery(`(max-width: ${MOBILE_WIDTH})`)
-  console.log("isMobile>>>", isMobile)
 
   const renderIcon = name => {
     if (name === "home") {
