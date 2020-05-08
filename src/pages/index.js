@@ -30,9 +30,6 @@ class IndexPage extends React.Component {
           I'm a software engineer who specializes in JavaScript/React frontent,
           and Elixir/Ecto on the backend.
         </p>
-        <Link to="/blog/">
-          <Button marginTop="35px">Go to Blog</Button>
-        </Link>
       </Layout>
     )
   }
