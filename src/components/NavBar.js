@@ -26,7 +26,7 @@ function StyledIconWrapper({ children }) {
 
 function NavBar() {
   const [hideSideNav, setHideSideNav] = useState(true)
-  const isMobile = useMediaQuery(`(max-width: ${MOBILE_WIDTH})`)
+  const isMobile = useMediaQuery(`(max-width: ${MOBILE_WIDTH})`) || true
 
   const renderIcon = name => {
     if (name === "home") {
@@ -107,15 +107,15 @@ const LinksListWrapper = styled.nav`
     width: 90%;
     max-width: 130px;
     position: absolute;
-    left: 0;
+    left: -130px;
     height: 100%;
     transition: transform .3s;
   }
 
   ${({ hide }) =>
-    hide &&
+    !hide &&
     `
-      transform: translateX(-100%);
+      transform: translateX(100%);
   `}
 
 `
