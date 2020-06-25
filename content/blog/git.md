@@ -6,6 +6,7 @@ description: >-
   Learn some basics.
 ---
 
+### Git commit messages
 Make a write-up about my key takeaways.
 
 (https://dev.to/ruanbrandao/how-to-make-good-git-commits-256k)
@@ -19,4 +20,17 @@ f12144 Fix duplicate email delivery bug
 23c30c Refactor UserAccount module
 ```
 
+
+## Git logs
+### Aliases
+[oh-my-zsh git cheatsheet](https://github.com/ohmyzsh/ohmyzsh/wiki/Cheatsheet)
+
+Show names of files changed in each commit *(Slightly more detailed than `git log`)*
+- `glg` : `git log --stat`
+
+Show list of commit ids and message
+- `glo` : `git log --oneline --decorate`
+
+Show list of commits with ids, message, dates, and author
+- `glol` : `git log --graph --pretty=\'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset\'`
 
