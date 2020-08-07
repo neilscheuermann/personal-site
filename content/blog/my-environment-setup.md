@@ -15,9 +15,17 @@ description: Different ways I've optimized my workflow
 - **M**: `my-environment-setup.md`
 
 ### Shortcuts
+
+***See `~/.vimrc`*** under `Neil's shortcuts for more.`
+
 **F5**: Open html file in the browser
 
 **F6**: Toggle markdown preview in browser
+
+`<Leader>c,`: Replace new lines in text with commas, and visually select text.
+
+``<Leader>` csw``: Will surround the word with the symbol you chose, or replace the current one.
+
 
 ## iTerm
 
