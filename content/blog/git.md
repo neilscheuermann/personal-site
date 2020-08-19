@@ -25,6 +25,9 @@ f12144 Fix duplicate email delivery bug
 ### Aliases
 [oh-my-zsh git cheatsheet](https://github.com/ohmyzsh/ohmyzsh/wiki/Cheatsheet)
 
+Show previous (2) commits
+- `glg` : `git log -p -2`
+
 Show names of files changed in each commit *(Slightly more detailed than `git log`)*
 - `glg` : `git log --stat`
 
