@@ -13,6 +13,7 @@ description: Different ways I've optimized my workflow
 - **C**: Corne keyboard layout file
 - **N**: `work-notes.md`
 - **M**: `my-environment-setup.md`
+- **B**: current relevant blog file
 
 ### Shortcuts
 
@@ -22,9 +23,13 @@ description: Different ways I've optimized my workflow
 
 **F6**: Toggle markdown preview in browser
 
+`<Leader>gf`: Open the file under the cursor in a vertical split window
+
 `<Leader>c,`: Replace new lines in text with commas, and visually select text.
 
 ``<Leader>` csw``: Will surround the word with the symbol you chose, or replace the current one.
+
+`^&`: Will move the closing `"` or `)` to the end of the next word
 
 
 ## iTerm
