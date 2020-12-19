@@ -24,7 +24,7 @@ class IndexPage extends React.Component {
           </span>
         </h1>
         <p>
-          I'm a software engineer who specializes in JavaScript/React frontent,
+          I'm a software engineer who specializes in JavaScript/React frontend,
           and Elixir/Ecto on the backend.
         </p>
       </Layout>
