@@ -1,79 +1,52 @@
-import React from "react"
-import { Link } from "gatsby"
-import styled from "styled-components"
+import React from 'react'
+import styled from 'styled-components'
 
-import { rhythm, scale } from "../utils/typography"
-import { removeDefaultLinkFormatting } from "../utils/constants"
-import NavBar from "./NavBar"
+import NavBar from './NavBar'
+import GlobalStyles, { MOBILE_MAX_WIDTH } from '../styles/GlobalStyles'
 
-function Layout(props) {
-  const { location, title, children } = props
-  const rootPath = `${__PATH_PREFIX__}/`
-  const blogPath = `${__PATH_PREFIX__}/blog/`
-  let header
-
-  if (location.pathname === rootPath || location.pathname === blogPath) {
-    header = (
-      <h1
-        style={{
-          ...scale(1.5),
-          marginBottom: rhythm(1.5),
-          marginTop: 0,
-        }}
-      >
-        <Link
-          style={removeDefaultLinkFormatting}
-          to={location.pathname === blogPath ? `/blog/` : `/`}
-        >
-          {title}
-        </Link>
-      </h1>
-    )
-  } else {
-    header = (
-      <h3
-        style={{
-          fontFamily: `Montserrat, sans-serif`,
-          marginTop: 0,
-        }}
-      >
-        <Link style={removeDefaultLinkFormatting} to={`/blog/`}>
-          {title}
-        </Link>
-      </h3>
-    )
-  }
+export default function Layout({ children }) {
   return (
-    <Wrapper>
-      <header>
+    <>
+      <GlobalStyles />
+      <ViewPortStyles>
         <NavBar />
-      </header>
-      <div
-        style={{
-          marginLeft: `auto`,
-          marginRight: `auto`,
-          maxWidth: rhythm(24),
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-        }}
-      >
-        <main>{children}</main>
-      </div>
-      <Footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </Footer>
-    </Wrapper>
+        <ContentStyles>{children}</ContentStyles>
+        <Footer>
+          © {new Date().getFullYear()}, Built with
+          {` `}
+          <a href="https://www.gatsbyjs.org">Gatsby</a>
+        </Footer>
+      </ViewPortStyles>
+    </>
   )
 }
 
-const Wrapper = styled.div`
+const ViewPortStyles = styled.div`
+  // In place to stretch nav and footer when content doesn't fill the screen
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   min-height: 100vh;
+
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+`
+
+const ContentStyles = styled.div`
+  margin-top: var(--header-height);
+
+  @media (max-width: ${MOBILE_MAX_WIDTH}) {
+    margin-top: var(--header-height-mobile);
+
+    > div {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+  }
 `
 
 const Footer = styled.footer`
   text-align: center;
   margin: 24px;
 `
-
-export default Layout

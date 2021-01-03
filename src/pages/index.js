@@ -1,17 +1,18 @@
-import React from "react"
-import Img from "gatsby-image"
-import { graphql, Link } from "gatsby"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import React from 'react'
+import Img from 'gatsby-image'
+import { graphql, Link } from 'gatsby'
+import Layout from '../components/layout'
+import SEO from '../components/seo'
 
 export default function HomePage({ data, location }) {
-  const siteTitle = "Neil Scheuermann"
+  const siteTitle = 'Neil Scheuermann'
 
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="Home" keywords={[`blog`, `gatsby`, `javascript`, `react`]} />
+      <Link to="/blog">Blog</Link>
       <h1>
-        Hey people{" "}
+        Hey people{' '}
         <span role="img" aria-label="laptop emoji">
           💻
         </span>
@@ -20,6 +21,15 @@ export default function HomePage({ data, location }) {
         I'm a software engineer who specializes in JavaScript/React frontend,
         and Elixir/Ecto on the backend.
       </p>
+      <>
+        TODO>>>>: Maybe try something like this for my home page.
+        (http://ianenders.com/)
+      </>
+
+      <>
+        TODO>>>: I kinda like the simple layout of this site. Something along
+        these lines. (https://seanoconn.org/)
+      </>
       <Img fluid={data.headshot.childImageSharp.fluid} />
     </Layout>
   )
