@@ -16,13 +16,24 @@ export default function NavBar() {
     <div>
       <NavMenu>
         <Link to="/">Neil Scheuermann</Link>
-        <Link to="/blog">Blog</Link>
-        {/* Make this a dropdown to show... */}
-        {/* experience/resume */}
-        {/* code */}
-        <Link to="/connect">About</Link>
+        <div>
+          <Link to="/blog">Blog</Link>
+          {/* Make this a dropdown to show... */}
+          {/* experience/resume */}
+          {/* code */}
+          <Link to="/connect">About</Link>
+        </div>
       </NavMenu>
     </div>
   )
 }
-const NavMenu = styled.div``
+
+const NavMenu = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+
+  div > a + a {
+    margin-left: 1rem;
+  }
+`

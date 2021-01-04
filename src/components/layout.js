@@ -31,6 +31,11 @@ const ViewPortStyles = styled.div`
   max-width: 1080px;
   margin-left: auto;
   margin-right: auto;
+
+  @media (max-width: 1200px) {
+    margin-left: 60px;
+    margin-right: 60px;
+  }
 `
 
 const ContentStyles = styled.div`
