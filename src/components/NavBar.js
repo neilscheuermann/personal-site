@@ -18,10 +18,10 @@ export default function NavBar() {
         <Link to="/">Neil Scheuermann</Link>
         <div>
           <Link to="/blog">Blog</Link>
-          {/* Make this a dropdown to show... */}
+          {/* Make `About` a dropdown to show... */}
           {/* experience/resume */}
           {/* code */}
-          <Link to="/connect">About</Link>
+          <Link to="/code">About.code</Link>
         </div>
       </NavMenu>
     </div>
