@@ -10,6 +10,7 @@ export default function Code(props) {
     <Layout>
       <SEO title="Code" />
       <CodePageStyles>This is the code page</CodePageStyles>
+      <Link to="/nailbiter-recaps">Nailbiter Recaps</Link>
       <Link to="/wesbos">
         This will link to a list/grid of wesbos 30 examples I've completed
       </Link>
