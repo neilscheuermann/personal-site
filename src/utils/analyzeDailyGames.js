@@ -1,10 +1,14 @@
 const axios = require('axios')
 
-async function analyzeDailyGames(date) {
-  const NBA_DATA = `http://data.nba.net/10s/prod/v1/${date}/scoreboard.json`
-  const resp = await axios.get(NBA_DATA)
+async function analyzeGames(date) {
+  const regularSeasonGamesResp = await axios.get(
+    'http://data.nba.net/prod/v1/2020/schedule.json'
+  )
+  const regularSeasonGames = regularSeasonGamesResp.data.league.standard
 
-  return resp.data.games.filter(isNailbiter)
+  const pastGames = regularSeasonGames.filter(game => game.statusNum === 3)
+
+  return pastGames.filter(isNailbiter)
 }
 
 function isNailbiter(game) {
@@ -16,7 +20,7 @@ function isNailbiter(game) {
 }
 
 function wentPastRegulation(game) {
-  return game.hTeam.linescore.length > 4
+  return game.period.current > 4
 }
 
 function wasCloseScoreAtEnd(game) {
@@ -30,4 +34,4 @@ function wasBuzzerBeater(game) {
   return game.isBuzzerBeater
 }
 
-module.exports = analyzeDailyGames
+module.exports = analyzeGames

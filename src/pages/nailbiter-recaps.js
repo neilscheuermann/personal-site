@@ -16,10 +16,8 @@ export default function NailbiterRecapsPage({ data, location }) {
         {/* Then block the progress bar and time. */}
         {data.games.nodes.map(game => (
           <div>
-            <h3>
-              {game.vTeam.triCode} vs.
-              {game.hTeam.triCode}
-            </h3>
+            <h3>{game.gameUrlCode}</h3>
+            {game.period.current > 4 && 'Went into overtime!!!'}
             <p>
               {game.vTeam.score} - {game.hTeam.score}
             </p>
@@ -37,14 +35,16 @@ export const query = graphql`
   query {
     games: allNailbiterItem {
       nodes {
+        gameUrlCode
         hTeam {
           score
-          triCode
         }
         startDateEastern(formatString: "MMMM DD, YYYY")
         vTeam {
           score
-          triCode
+        }
+        period {
+          current
         }
       }
     }

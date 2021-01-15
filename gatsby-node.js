@@ -1,7 +1,6 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
-const getDateArray = require('./src/utils/getDateArray')
-const analyzeDailyGames = require('./src/utils/analyzeDailyGames')
+const analyzeGames = require('./src/utils/analyzeGames')
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
@@ -59,16 +58,8 @@ exports.sourceNodes = async params => {
 }
 
 async function fetchGamesAndTurnIntoNodes(params) {
-  const START_DATE = new Date('2021-01-10') //YYYY-MM-DD
-  const END_DATE = new Date('2021-01-14') //YYYY-MM-DD
-
-  const dateArr = getDateArray(START_DATE, END_DATE)
-
-  dateArr.forEach(async date => {
-    const daysNailbiters = await analyzeDailyGames(date)
-
-    daysNailbiters.forEach(game => createNailbiterNode(params, game))
-  })
+  const nailbiters = await analyzeGames()
+  nailbiters.forEach(game => createNailbiterNode(params, game))
 }
 
 function createNailbiterNode(
