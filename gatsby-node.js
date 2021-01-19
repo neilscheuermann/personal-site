@@ -1,6 +1,6 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
-const analyzeGames = require('./src/utils/analyzeGames')
+const fetchNailBiters = require('./src/utils/fetchNailBiters')
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
@@ -58,7 +58,7 @@ exports.sourceNodes = async params => {
 }
 
 async function fetchGamesAndTurnIntoNodes(params) {
-  const nailbiters = await analyzeGames()
+  const nailbiters = await fetchNailBiters()
   nailbiters.forEach(game => createNailbiterNode(params, game))
 }
 

@@ -1,6 +1,6 @@
 const axios = require('axios')
 
-async function analyzeGames(date) {
+async function fetchNailBiters(date) {
   const regularSeasonGamesResp = await axios.get(
     'http://data.nba.net/prod/v1/2020/schedule.json'
   )
@@ -34,4 +34,4 @@ function wasBuzzerBeater(game) {
   return game.isBuzzerBeater
 }
 
-module.exports = analyzeGames
+module.exports = fetchNailBiters
