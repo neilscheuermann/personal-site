@@ -10,6 +10,15 @@ export default function NailbiterRecapsPage({ data, location }) {
       <SEO title="Nailbiter Recaps" />
       <PageStyles>
         <p>This is the nailbiters page</p>
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/Yfcyk8T7bY0"
+          title="this will be the ${videoHighlight.title}"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
         {/* TODO>>>: Find a way to search in youtube `nba full game highlights */}
         {/* tricode tricode date` */}
         {/* Then select the first video in the result. */}

@@ -59,18 +59,18 @@ exports.sourceNodes = async params => {
 
 async function fetchGamesAndTurnIntoNodes(params) {
   const nailbiters = await fetchNailBiters()
-  nailbiters.forEach(game => createNailbiterNode(params, game))
+  nailbiters.forEach(game => createNailbiterNode(game, params))
 }
 
 function createNailbiterNode(
-  { actions, createNodeId, createContentDigest },
-  game
+  game,
+  { actions, createNodeId, createContentDigest }
 ) {
   const nodeContent = JSON.stringify(game)
 
   const nodeMeta = {
     id: createNodeId(
-      `nailbiter-${game.startDateEastern}-${game.vTeam.triCode}-${game.hTeam.triCode}`
+      `nailbiter-${game.startDateEastern}-${game.vTeam.tricode}-${game.hTeam.tricode}`
     ),
     parent: null,
     children: [],
