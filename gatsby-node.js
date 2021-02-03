@@ -7,7 +7,7 @@ exports.sourceNodes = async params => {
 }
 
 exports.createPages = async params => {
-  turnBlogPostsIntoPages(params)
+  await turnBlogPostsIntoPages(params)
 
   await Promise.all([paginateNailbiters(params)])
 }
