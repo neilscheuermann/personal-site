@@ -16,13 +16,11 @@ export default function NavBar() {
     <div>
       <NavMenu>
         <Link to="/">Neil Scheuermann</Link>
-        <div>
-          <Link to="/blog">Blog</Link>
-          {/* Make `About` a dropdown to show... */}
-          {/* experience/resume */}
-          {/* code */}
-          <Link to="/code">About.code</Link>
-        </div>
+        <Link to="/blog">Blog</Link>
+        {/* Make `About` a dropdown to show... */}
+        {/* experience/resume */}
+        {/* code */}
+        <Link to="/code">About.code</Link>
       </NavMenu>
     </div>
   )
@@ -33,7 +31,11 @@ const NavMenu = styled.div`
   justify-content: space-between;
   padding: 1rem 0;
 
-  div > a + a {
+  & > :first-child {
+    margin-right: auto;
+  }
+
+  & > a + a {
     margin-left: 1rem;
   }
 `
