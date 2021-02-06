@@ -23,9 +23,3 @@ ul, ol {
   margin-left: 32px;
 }
 
-.hide-sidenav {
-  transform: translateX(-150%);
-  transition: transform .3s;
-  will-change: transform;
-  background: #ececec;
-}

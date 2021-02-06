@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 
 // import useReactResponsive from '../hooks/useReactResponsive'
-// import { WEB_MIN_WIDTH, MOBILE_MAX_WIDTH } from '../styles/GlobalStyles'
 
 export default function NavBar() {
   // const { isMobile } = useReactResponsive()
@@ -13,22 +12,27 @@ export default function NavBar() {
   // }, [isMobile])
 
   return (
-    <div>
-      <NavMenu>
-        <Link to="/">Neil Scheuermann</Link>
-        <Link to="/blog">Blog</Link>
-        {/* Make `About` a dropdown to show... */}
-        {/* experience/resume */}
-        {/* code */}
-        <Link to="/code">About.code</Link>
-      </NavMenu>
-    </div>
+    <NavMenu>
+      <Link to="/">Neil Scheuermann</Link>
+      <Link to="/blog">Blog</Link>
+      {/* Make this `About` with a dropdown to show... */}
+      {/* experience/resume */}
+      {/* code */}
+      <Link to="/code">Code</Link>
+    </NavMenu>
   )
 }
 
 const NavMenu = styled.div`
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  background: white;
+  width: 100%;
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
-  justify-content: space-between;
   padding: 1rem 0;
 
   & > :first-child {

@@ -10,7 +10,7 @@ export default function Layout({ children }) {
       <GlobalStyles />
       <ViewPortStyles>
         <NavBar />
-        <ContentStyles>{children}</ContentStyles>
+        <div>{children}</div>
         <Footer>
           © {new Date().getFullYear()}, Built with
           {` `}
@@ -27,27 +27,16 @@ const ViewPortStyles = styled.div`
   flex-direction: column;
   justify-content: space-between;
   min-height: 100vh;
+  position: relative;
 
   max-width: 1080px;
   margin-left: auto;
   margin-right: auto;
 
-  @media (max-width: 1200px) {
-    margin-left: 60px;
-    margin-right: 60px;
-  }
-`
-
-const ContentStyles = styled.div`
-  margin-top: var(--header-height);
-
   @media (max-width: ${MOBILE_MAX_WIDTH}) {
-    margin-top: var(--header-height-mobile);
-
-    > div {
-      padding-left: 16px;
-      padding-right: 16px;
-    }
+    max-width: initial;
+    margin-left: 16px;
+    margin-right: 16px;
   }
 `
 

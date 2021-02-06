@@ -3,6 +3,7 @@ import { graphql, Link } from 'gatsby'
 import styled from 'styled-components'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
+import { MOBILE_MAX_WIDTH } from '../styles/GlobalStyles'
 
 export default function NailbiterRecapsPage({ data, location }) {
   const {
@@ -18,25 +19,27 @@ export default function NailbiterRecapsPage({ data, location }) {
       <SEO title="Nailbiter Recaps" />
       <PageStyles>
         <h1>Nailbiter Recaps</h1>
-        <PaginationStyles>
-          <Link
-            disabled={!hasPreviousPage}
-            to={`/nailbiter-recaps/${currentPage - 1}`}
-          >
-            Back
-          </Link>
-          {pagesArr.map((_, index) => {
-            return (
-              <Link to={`/nailbiter-recaps/${index + 1}`}>{index + 1}</Link>
-            )
-          })}
-          <Link
-            disabled={!hasNextPage}
-            to={`/nailbiter-recaps/${currentPage + 1}`}
-          >
-            Next
-          </Link>
-        </PaginationStyles>
+        <div className="jc-center">
+          <PaginationStyles>
+            <Link
+              disabled={!hasPreviousPage}
+              to={`/nailbiter-recaps/${currentPage - 1}`}
+            >
+              Back
+            </Link>
+            {pagesArr.map((_, index) => {
+              return (
+                <Link to={`/nailbiter-recaps/${index + 1}`}>{index + 1}</Link>
+              )
+            })}
+            <Link
+              disabled={!hasNextPage}
+              to={`/nailbiter-recaps/${currentPage + 1}`}
+            >
+              Next
+            </Link>
+          </PaginationStyles>
+        </div>
         {/* TODO>>>: Find a way to search in youtube `nba full game highlights */}
         {/* tricode tricode date` */}
         {/* Then select the first video in the result. */}
@@ -77,16 +80,29 @@ export default function NailbiterRecapsPage({ data, location }) {
   )
 }
 
-const PageStyles = styled.div``
+const PageStyles = styled.div`
+  & > h1 {
+    text-align: center;
+  }
+`
 
 const PaginationStyles = styled.div`
   display: flex;
-  width: 50%;
+  overflow: scroll;
+  width: 80%;
 
-  & > * {
+  @media (max-width: ${MOBILE_MAX_WIDTH}) {
+    width: 100%;
+    padding: 1rem 0;
+  }
+
+  & > a {
     flex: 1;
     text-decoration: none;
-    border-right: solid 1px grey;
+    text-align: center;
+    border-radius: 5px;
+    padding-left: 1rem;
+    padding-right: 1rem;
 
     &[aria-current],
     &.current {
@@ -96,6 +112,10 @@ const PaginationStyles = styled.div`
     &[disabled] {
       pointer-events: none;
       color: grey;
+    }
+
+    &:hover {
+      background: grey;
     }
   }
 `

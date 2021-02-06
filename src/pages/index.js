@@ -15,7 +15,7 @@ export default function HomePage({ data, location }) {
           title="Home"
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
-        <div class="cover-image">
+        <div className="cover-image">
           <Img
             fluid={data.headshot.childImageSharp.fluid}
             imgStyle={{

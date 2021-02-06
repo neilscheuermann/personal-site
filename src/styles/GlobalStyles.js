@@ -59,6 +59,16 @@ const GlobalStyles = createGlobalStyle`
       width: 1em;
     }
   }
+
+  a {
+    box-shadow: none;
+    text-decoration: none;
+  }
+
+  .jc-center {
+    display: flex;
+    justify-content: center;
+  }
 `
 
 export default GlobalStyles
