@@ -16,6 +16,8 @@ const GlobalStyles = createGlobalStyle`
     //
     --black: #000;
     --black-gray: #333;
+    --black-gray-faded: #3333331f;
+    --background: #f0f0f0;
     --white: #fff;
     // TODO>>> Find color palate, https://coolors.co/
 

@@ -29,7 +29,9 @@ export default function NailbiterRecapsPage({ data, location }) {
             </Link>
             {pagesArr.map((_, index) => {
               return (
-                <Link to={`/nailbiter-recaps/${index + 1}`}>{index + 1}</Link>
+                <Link key={index} to={`/nailbiter-recaps/${index + 1}`}>
+                  {index + 1}
+                </Link>
               )
             })}
             <Link
@@ -40,41 +42,43 @@ export default function NailbiterRecapsPage({ data, location }) {
             </Link>
           </PaginationStyles>
         </div>
-        {/* TODO>>>: Find a way to search in youtube `nba full game highlights */}
-        {/* tricode tricode date` */}
-        {/* Then select the first video in the result. */}
-        {/* Then block the progress bar and time. */}
-        {data.games.nodes.map(game => {
-          const [month, day, year] = game.startDateEastern.split(' ')
-          const { vTeam, hTeam, highlightVideoUrl, startDateEastern } = game
+        <GridStyles>
+          {/* TODO>>>: Find a way to search in youtube `nba full game highlights */}
+          {/* tricode tricode date` */}
+          {/* Then select the first video in the result. */}
+          {/* Then block the progress bar and time. */}
+          {data.games.nodes.map(game => {
+            const [month, day, year] = game.startDateEastern.split(' ')
+            const { vTeam, hTeam, highlightVideoUrl, startDateEastern } = game
 
-          return (
-            <div>
-              <h3>
-                {vTeam.nickname} at {hTeam.nickname}
-              </h3>
-              <p>{startDateEastern}</p>
-              <a
-                href={`https://www.youtube.com/results?search_query=${vTeam.nickname}+at+${hTeam.nickname}+${month}+${day}+${year}`}
-                target="_blank"
-                rel="noreferrer"
-              >
-                Search on YouTube
-              </a>
-              <div className="video-container">
-                {/* <iframe */}
-                {/*   width="560" */}
-                {/*   height="315" */}
-                {/*   src={highlightVideoUrl} */}
-                {/*   title={`NBA higlight of ${vTeam.nickname} at ${hTeam.nickname}, ${month}/${day}/${year}`} */}
-                {/*   frameborder="0" */}
-                {/*   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" */}
-                {/*   allowfullscreen */}
-                {/* /> */}
+            return (
+              <div key={game.id || startDateEastern}>
+                <h3>
+                  {vTeam.nickname} at {hTeam.nickname}
+                </h3>
+                <p>{startDateEastern}</p>
+                <a
+                  href={`https://www.youtube.com/results?search_query=${vTeam.nickname}+at+${hTeam.nickname}+${month}+${day}+${year}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Search on YouTube
+                </a>
+                <div className="video-container">
+                  {/* <iframe */}
+                  {/*   width="560" */}
+                  {/*   height="315" */}
+                  {/*   src={highlightVideoUrl} */}
+                  {/*   title={`NBA higlight of ${vTeam.nickname} at ${hTeam.nickname}, ${month}/${day}/${year}`} */}
+                  {/*   frameborder="0" */}
+                  {/*   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" */}
+                  {/*   allowfullscreen */}
+                  {/* /> */}
+                </div>
               </div>
-            </div>
-          )
-        })}
+            )
+          })}
+        </GridStyles>
       </PageStyles>
     </Layout>
   )
@@ -83,6 +87,23 @@ export default function NailbiterRecapsPage({ data, location }) {
 const PageStyles = styled.div`
   & > h1 {
     text-align: center;
+  }
+`
+
+const GridStyles = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+
+  & > * {
+    border: solid var(--black-gray-faded) 1px;
+    border-radius: 6%;
+    text-align: center;
+    background: var(--background);
+    margin: 0.5rem;
+
+    & > :last-child {
+      margin-bottom: 1rem;
+    }
   }
 `
 
