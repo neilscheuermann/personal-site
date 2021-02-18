@@ -94,7 +94,7 @@ function turnBlogPostsIntoPages({ graphql, actions }) {
 
 async function paginateNailbiters({ graphql, actions }) {
   // TODO: >>> find way to pass this to the query
-  // process.env.GATSBY_PAGE_SIZE
+  // process.env.GATSBY_PAGE_SIZE where `limit: 10`
   const { data } = await graphql(`
     query {
       games: allNailbiterItem(

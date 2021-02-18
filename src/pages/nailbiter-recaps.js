@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql, Link } from 'gatsby'
 import styled from 'styled-components'
 import Layout from '../components/layout'
+import NailbiterRecapCard from '../components/NailbiterRecapCard'
 import SEO from '../components/seo'
 import { MOBILE_MAX_WIDTH } from '../styles/GlobalStyles'
 
@@ -43,39 +44,12 @@ export default function NailbiterRecapsPage({ data, location }) {
           </PaginationStyles>
         </div>
         <GridStyles>
-          {/* TODO>>>: Find a way to search in youtube `nba full game highlights */}
-          {/* tricode tricode date` */}
-          {/* Then select the first video in the result. */}
-          {/* Then block the progress bar and time. */}
           {data.games.nodes.map(game => {
-            const [month, day, year] = game.startDateEastern.split(' ')
-            const { vTeam, hTeam, highlightVideoUrl, startDateEastern } = game
-
             return (
-              <div key={game.id || startDateEastern}>
-                <h3>
-                  {vTeam.nickname} at {hTeam.nickname}
-                </h3>
-                <p>{startDateEastern}</p>
-                <a
-                  href={`https://www.youtube.com/results?search_query=${vTeam.nickname}+at+${hTeam.nickname}+${month}+${day}+${year}`}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Search on YouTube
-                </a>
-                <div className="video-container">
-                  {/* <iframe */}
-                  {/*   width="560" */}
-                  {/*   height="315" */}
-                  {/*   src={highlightVideoUrl} */}
-                  {/*   title={`NBA higlight of ${vTeam.nickname} at ${hTeam.nickname}, ${month}/${day}/${year}`} */}
-                  {/*   frameborder="0" */}
-                  {/*   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" */}
-                  {/*   allowfullscreen */}
-                  {/* /> */}
-                </div>
-              </div>
+              <NailbiterRecapCard
+                key={game.id || game.startDateEastern}
+                game={game}
+              />
             )
           })}
         </GridStyles>
