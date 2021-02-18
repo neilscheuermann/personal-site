@@ -9,7 +9,10 @@ exports.sourceNodes = async params => {
 exports.createPages = async params => {
   await turnBlogPostsIntoPages(params)
 
-  await Promise.all([paginateNailbiters(params)])
+  await Promise.all([
+    turnNailbitersIntoPages(params),
+    paginateNailbiters(params),
+  ])
 }
 
 async function fetchGamesAndTurnIntoNodes(params) {
@@ -39,6 +42,53 @@ function createNailbiterNode(
 
   const node = { ...game, ...nodeMeta }
   actions.createNode(node)
+}
+
+function turnNailbitersIntoPages({ graphql, actions }) {
+  const { createPage } = actions
+
+  const nailbiterRecapTemplate = path.resolve(
+    `./src/templates/nailbiter-recap.js`
+  )
+  return graphql(
+    `
+      query {
+        allNailbiterItem {
+          nodes {
+            id
+            startDateEastern(formatString: "MMM DD YYYY")
+            hTeam {
+              tricode
+            }
+            vTeam {
+              tricode
+            }
+          }
+        }
+      }
+    `
+  ).then(result => {
+    if (result.errors) {
+      throw result.errors
+    }
+
+    // Create nailbiter pages.
+    const nailbiters = result.data.allNailbiterItem.nodes
+
+    nailbiters.forEach(nailbiter => {
+      const [month, day, year] = nailbiter.startDateEastern.split(' ')
+
+      createPage({
+        path: `nailbiter-recap-${year}${day}${month}${nailbiter.vTeam.tricode}${nailbiter.hTeam.tricode}`,
+        component: nailbiterRecapTemplate,
+        context: {
+          id: nailbiter.id,
+        },
+      })
+    })
+
+    return null
+  })
 }
 
 function turnBlogPostsIntoPages({ graphql, actions }) {

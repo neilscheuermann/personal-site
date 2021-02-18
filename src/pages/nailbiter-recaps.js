@@ -12,7 +12,7 @@ export default function NailbiterRecapsPage({ data, location }) {
     hasNextPage,
     hasPreviousPage,
     pageCount,
-  } = data.games.pageInfo
+  } = data.nailbiters.pageInfo
   const pagesArr = Array(pageCount).fill(undefined)
 
   return (
@@ -44,11 +44,11 @@ export default function NailbiterRecapsPage({ data, location }) {
           </PaginationStyles>
         </div>
         <GridStyles>
-          {data.games.nodes.map(game => {
+          {data.nailbiters.nodes.map(nailbiter => {
             return (
               <NailbiterRecapCard
-                key={game.id || game.startDateEastern}
-                game={game}
+                key={nailbiter.id || nailbiter.startDateEastern}
+                nailbiter={nailbiter}
               />
             )
           })}
@@ -117,7 +117,7 @@ const PaginationStyles = styled.div`
 
 export const query = graphql`
   query($limit: Int = 10, $skip: Int = 0) {
-    games: allNailbiterItem(
+    nailbiters: allNailbiterItem(
       sort: { fields: startDateEastern, order: DESC }
       limit: $limit
       skip: $skip
@@ -134,9 +134,11 @@ export const query = graphql`
         startDateEastern(formatString: "MMM DD YYYY")
         hTeam {
           nickname
+          tricode
         }
         vTeam {
           nickname
+          tricode
         }
         period {
           current
