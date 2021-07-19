@@ -1,12 +1,12 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
-import styled from "styled-components"
+import React from 'react'
+import { Link, graphql } from 'gatsby'
+import styled from 'styled-components'
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
-import Button from "../components/button"
+import Bio from '../components/bio'
+import Layout from '../components/layout'
+import SEO from '../components/seo'
+import { rhythm } from '../utils/typography'
+import Button from '../components/button'
 
 class Blog extends React.Component {
   render() {
@@ -18,7 +18,7 @@ class Blog extends React.Component {
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="All posts" />
         <Bio />
-        <div style={{ margin: "20px 0 40px" }}>
+        <div style={{ margin: '20px 0 40px' }}>
           {posts.map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug
             const tags = node.frontmatter.tags || []
@@ -32,7 +32,7 @@ class Blog extends React.Component {
                 >
                   <Link
                     style={{ boxShadow: `none` }}
-                    to={`blog${node.fields.slug}`}
+                    to={`/blog${node.fields.slug}`}
                   >
                     {title}
                   </Link>
