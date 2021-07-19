@@ -34,7 +34,7 @@ export default function HomePage({ data, location }) {
           <p>
             I'm a software engineer who specializes in{' '}
             <strong>JavaScript/React</strong> on the frontend, and{' '}
-            <strong>Elixir/Ecto</strong> on the backend.
+            <strong>Elixir/Phoenix</strong> on the backend.
           </p>
           <p>
             My goal is to enjoy the life I've been given and leave a positive
